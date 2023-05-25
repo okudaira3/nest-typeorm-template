@@ -8,10 +8,12 @@ import { UpdateCatDto } from './dto/update-cat.dto';
 import { Cat } from './entities/cat.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { CatRepository } from './cats.repository';
 
 @Injectable()
 export class CatsService {
-  constructor(@InjectRepository(Cat) private catRepository: Repository<Cat>) {}
+  // constructor(@InjectRepository(Cat) private catRepository: Repository<Cat>) {}
+  constructor(private readonly catRepository: CatRepository) {}
 
   /**
    * @summary 登録機能
